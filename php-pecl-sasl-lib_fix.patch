@@ -1,0 +1,11 @@
+--- php-pecl-sasl-0.1.0/sasl-0.1.0/config.m4~	2004-01-23 08:34:28.000000000 +0000
++++ php-pecl-sasl-0.1.0/sasl-0.1.0/config.m4	2004-08-08 09:54:15.090337624 +0000
+@@ -31,7 +31,7 @@
+ 
+   AC_MSG_CHECKING(for SASL library in $SASL_DIR/lib)
+   for i in $SEARCH_LIBS; do
+-    if test -r $SASL_DIR/lib/lib$i.a; then
++    if test -r $SASL_DIR/lib/lib$i.so; then
+       SASL_LIB=$i
+       AC_MSG_RESULT(found -l$i)
+     fi
