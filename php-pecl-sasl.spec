@@ -1,8 +1,8 @@
 %define		_modname	sasl
 %define		_status		alpha
 
-Summary:	%{_modname} - Cyrus SASL Extension
-Summary(pl):	%{_modname} - Rozszerzenie Cyrus SASL
+Summary:	%{_modname} - Cyrus SASL extension
+Summary(pl):	%{_modname} - rozszerzenie Cyrus SASL
 Name:		php-pecl-%{_modname}
 Version:	0.1.0
 Release:	1
@@ -25,7 +25,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 SASL is the Simple Authentication and Security Layer (as defined by
 RFC 2222). It provides a system for adding plugable authenticating
-support to connection-based protocols. The SASL Extension for PHP
+support to connection-based protocols. The SASL extension for PHP
 makes the Cyrus SASL library functions available to PHP. It aims to
 provide a 1-to-1 wrapper around the SASL library to provide the
 greatest amount of implementation flexibility. To that end, it is
