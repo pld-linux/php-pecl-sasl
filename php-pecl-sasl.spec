@@ -35,9 +35,18 @@ implementation entirely in PHP.
 
 In PECL status of this extension is: %{_status}.
 
-#%description -l pl
-#
-#To rozszerzenie ma w PECL status: %{_status}.
+%description -l pl
+SASL to warstwa prostego uwierzytelnienia i bezpieczeñstwa (Simple
+Authentication and Security Layer) zdefiniowana w RFC 2222. Dostarcza
+system do dodawania wtyczek obs³uguj±cych uwierzytelnianie do
+protoko³ów opartych na po³±czeniach. Rozszerzenie SASL dla PHP
+udostêpnia w PHP funkcje biblioteki Cyrus SASL. Celem jest
+dostarczenie obudowania 1-do-1 biblioteki SASL, aby udostêpniæ jak
+najwiêksz± elastyczno¶æ implementacji. W tym celu mo¿liwe jest
+zbudowanie zarówno klienckiej jak i serwerowej implementacji SASL
+ca³kowicie w PHP.
+
+To rozszerzenie ma w PECL status: %{_status}.
 
 %prep
 %setup -q -c
