@@ -1,0 +1,30 @@
+diff -burN php-pecl-sasl-1.0.orig/sasl-0.1.0/config.m4 php-pecl-sasl-1.0/sasl-0.1.0/config.m4
+--- php-pecl-sasl-1.0.orig/sasl-0.1.0/config.m4	2004-08-08 12:18:32.613760384 +0200
++++ php-pecl-sasl-1.0/sasl-0.1.0/config.m4	2004-08-08 12:19:41.814240312 +0200
+@@ -29,9 +29,9 @@
+      AC_MSG_ERROR(Please specify path to SASL installation)
+   fi
+ 
+-  AC_MSG_CHECKING(for SASL library in $SASL_DIR/lib)
++  AC_MSG_CHECKING(for SASL library in $SASL_DIR/lib64)
+   for i in $SEARCH_LIBS; do
+-    if test -r $SASL_DIR/lib/lib$i.a; then
++    if test -r $SASL_DIR/lib64/lib$i.so; then
+       SASL_LIB=$i
+       AC_MSG_RESULT(found -l$i)
+     fi
+@@ -39,12 +39,12 @@
+ 
+   if test -z "$SASL_LIB"; then
+      AC_MSG_RESULT(not found)
+-     AC_MSG_ERROR(Failed to locate a compatible SASL library in $SASL_DIR/lib)
++     AC_MSG_ERROR(Failed to locate a compatible SASL library in $SASL_DIR/lib64)
+   fi
+ 
+   LIBSYMBOL=sasl_server_init
+   old_LIBS=$LIBS
+-  LIBS="$LIBS -L$SASL_DIR/lib"
++  LIBS="$LIBS -L$SASL_DIR/lib64"
+   AC_CHECK_LIB($SASL_LIB, $LIBSYMBOL, [AC_DEFINE(HAVE_SASL_LIB,1,[ ])],
+                [AC_MSG_ERROR(unknown SASL library or library not found)])
+   LIBS=$old_LIBS
