@@ -11,6 +11,7 @@ Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	8431731cc8a7921a2922af23a57a572f
 Patch0:		%{name}-lib_fix.patch
+Patch1:		%{name}-lib64_fix.patch
 URL:		http://pecl.php.net/package/sasl/
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	libtool
@@ -40,12 +41,17 @@ In PECL status of this extension is: %{_status}.
 
 %prep
 %setup -q -c
+# Ugly, could be done somehow prettier (one combined patch?)
+%ifnarch amd64
 %patch0 -p1
+%else
+%patch1 -p1
+%endif
 
 %build
 cd %{_modname}-%{version}
 phpize
-LDFLAGS="%{_rpmldflags} -L%{_libdir}" %configure
+%configure
 %{__make}
 
 %install
