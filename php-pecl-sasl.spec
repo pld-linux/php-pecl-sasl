@@ -10,6 +10,7 @@ License:	PHP 2.02
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	8431731cc8a7921a2922af23a57a572f
+Patch0:		%{name}-lib_fix.patch
 URL:		http://pecl.php.net/package/sasl/
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	libtool
@@ -39,6 +40,7 @@ In PECL status of this extension is: %{_status}.
 
 %prep
 %setup -q -c
+%patch0 -p1
 
 %build
 cd %{_modname}-%{version}
