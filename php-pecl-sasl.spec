@@ -45,7 +45,7 @@ In PECL status of this extension is: %{_status}.
 %build
 cd %{_modname}-%{version}
 phpize
-%configure
+LDFLAGS="%{_rpmldflags} -L%{_libdir}" %configure
 %{__make}
 
 %install
