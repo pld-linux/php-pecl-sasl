@@ -51,10 +51,10 @@ To rozszerzenie ma w PECL status: %{_status}.
 %prep
 %setup -q -c
 # Ugly, could be done somehow prettier (one combined patch?)
-%ifnarch amd64
-%patch0 -p1
-%else
+%if "%{_lib}" == "lib64"
 %patch1 -p1
+%else
+%patch0 -p1
 %endif
 
 %build
