@@ -14,7 +14,6 @@ Patch0:		%{name}-lib_fix.patch
 Patch1:		%{name}-lib64_fix.patch
 URL:		http://pecl.php.net/package/sasl/
 BuildRequires:	cyrus-sasl-devel
-BuildRequires:	libtool
 BuildRequires:	php-devel
 Requires:	php-common
 Obsoletes:	php-pear-%{_modname}
