@@ -1,7 +1,7 @@
 %define		_modname	sasl
 %define		_status		alpha
 Summary:	%{_modname} - Cyrus SASL extension
-Summary(pl):	%{_modname} - rozszerzenie Cyrus SASL
+Summary(pl.UTF-8):   %{_modname} - rozszerzenie Cyrus SASL
 Name:		php-pecl-%{_modname}
 Version:	0.1.0
 Release:	7
@@ -32,16 +32,16 @@ implementation entirely in PHP.
 
 In PECL status of this extension is: %{_status}.
 
-%description -l pl
-SASL to warstwa prostego uwierzytelnienia i bezpieczeñstwa (Simple
+%description -l pl.UTF-8
+SASL to warstwa prostego uwierzytelnienia i bezpieczeÅ„stwa (Simple
 Authentication and Security Layer) zdefiniowana w RFC 2222. Dostarcza
-system do dodawania wtyczek obs³uguj±cych uwierzytelnianie do
-protoko³ów opartych na po³±czeniach. Rozszerzenie SASL dla PHP
-udostêpnia w PHP funkcje biblioteki Cyrus SASL. Celem jest
-dostarczenie obudowania 1-do-1 biblioteki SASL, aby udostêpniæ jak
-najwiêksz± elastyczno¶æ implementacji. W tym celu mo¿liwe jest
-zbudowanie zarówno klienckiej jak i serwerowej implementacji SASL
-ca³kowicie w PHP.
+system do dodawania wtyczek obsÅ‚ugujÄ…cych uwierzytelnianie do
+protokoÅ‚Ã³w opartych na poÅ‚Ä…czeniach. Rozszerzenie SASL dla PHP
+udostÄ™pnia w PHP funkcje biblioteki Cyrus SASL. Celem jest
+dostarczenie obudowania 1-do-1 biblioteki SASL, aby udostÄ™pniÄ‡ jak
+najwiÄ™kszÄ… elastycznoÅ›Ä‡ implementacji. W tym celu moÅ¼liwe jest
+zbudowanie zarÃ³wno klienckiej jak i serwerowej implementacji SASL
+caÅ‚kowicie w PHP.
 
 To rozszerzenie ma w PECL status: %{_status}.
 
