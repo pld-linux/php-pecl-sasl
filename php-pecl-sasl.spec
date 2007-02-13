@@ -1,7 +1,7 @@
 %define		_modname	sasl
 %define		_status		alpha
 Summary:	%{_modname} - Cyrus SASL extension
-Summary(pl.UTF-8):   %{_modname} - rozszerzenie Cyrus SASL
+Summary(pl.UTF-8):	%{_modname} - rozszerzenie Cyrus SASL
 Name:		php-pecl-%{_modname}
 Version:	0.1.0
 Release:	7
