@@ -5,7 +5,7 @@ Summary(pl.UTF-8):	%{_modname} - rozszerzenie Cyrus SASL
 Name:		php-pecl-%{_modname}
 Version:	0.1.0
 Release:	7
-License:	PHP 2.02
+License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	8431731cc8a7921a2922af23a57a572f
