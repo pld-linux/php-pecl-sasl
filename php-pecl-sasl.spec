@@ -1,23 +1,24 @@
-%define		_modname	sasl
-%define		_status		alpha
-Summary:	%{_modname} - Cyrus SASL extension
-Summary(pl.UTF-8):	%{_modname} - rozszerzenie Cyrus SASL
-Name:		php-pecl-%{_modname}
+%define		php_name	php%{?php_suffix}
+%define		modname	sasl
+%define		status		alpha
+Summary:	%{modname} - Cyrus SASL extension
+Summary(pl.UTF-8):	%{modname} - rozszerzenie Cyrus SASL
+Name:		%{php_name}-pecl-%{modname}
 Version:	0.1.0
 Release:	12
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	8431731cc8a7921a2922af23a57a572f
-Patch0:		%{name}-lib_fix.patch
-Patch1:		%{name}-lib64_fix.patch
+Patch0:		php-pecl-%{modname}-lib_fix.patch
+Patch1:		php-pecl-%{modname}-lib64_fix.patch
 URL:		http://pecl.php.net/package/sasl/
 BuildRequires:	cyrus-sasl-devel
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
-Obsoletes:	php-pear-%{_modname}
+Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -30,7 +31,7 @@ greatest amount of implementation flexibility. To that end, it is
 possible to build both a client-side and server-side SASL
 implementation entirely in PHP.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 SASL to warstwa prostego uwierzytelnienia i bezpieczeństwa (Simple
@@ -43,19 +44,19 @@ największą elastyczność implementacji. W tym celu możliwe jest
 zbudowanie zarówno klienckiej jak i serwerowej implementacji SASL
 całkowicie w PHP.
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{modname}-%{version}/* .
 # Ugly, could be done somehow prettier (one combined patch?)
 %if "%{_lib}" == "lib64"
-%patch1 -p1
+%patch1 -p2
 %else
-%patch0 -p1
+%patch0 -p2
 %endif
 
 %build
-cd %{_modname}-%{version}
 phpize
 %configure
 %{__make}
@@ -63,11 +64,10 @@ phpize
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
-
-install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_modname}.so
+install -p modules/%{modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{modname}.so
 EOF
 
 %clean
@@ -83,6 +83,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/docs/TODO
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%doc docs/TODO
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{modname}.so
