@@ -5,7 +5,7 @@ Summary:	%{modname} - Cyrus SASL extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie Cyrus SASL
 Name:		%{php_name}-pecl-%{modname}
 Version:	0.1.0
-Release:	13
+Release:	14
 License:	PHP 3.01
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
@@ -13,13 +13,12 @@ Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 Patch0:		php-pecl-%{modname}-lib_fix.patch
 Patch1:		php-pecl-%{modname}-lib64_fix.patch
 URL:		http://pecl.php.net/package/sasl/
-BuildRequires:	%{php_name}-devel >= 3:5.0.0
+BuildRequires:	%{php_name}-devel >= 3:5.0.4
 BuildRequires:	cyrus-sasl-devel
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
-Requires:	php(core) >= 5.0.4
 Provides:	php(%{modname}) = %{version}
-Obsoletes:	php-pear-%{modname}
+Obsoletes:	php-pecl-sasl < 0.1.0-13
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
