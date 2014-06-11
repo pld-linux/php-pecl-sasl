@@ -4,13 +4,14 @@
 Summary:	%{modname} - Cyrus SASL extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie Cyrus SASL
 Name:		%{php_name}-pecl-%{modname}
-Version:	0.1.0
-Release:	15
+Version:	0.2.0
+Release:	1
 License:	PHP 3.01
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+Source0:	http://pecl.php.net/get/%{modname}-0.1.0.tgz
 # Source0-md5:	8431731cc8a7921a2922af23a57a572f
-Patch0:		php-pecl-%{modname}-lib_fix.patch
+Patch99:	prepatch.patch
+Patch100:	branch.diff
 Patch1:		php-pecl-%{modname}-lib64_fix.patch
 URL:		http://pecl.php.net/package/sasl/
 BuildRequires:	%{php_name}-devel >= 3:5.0.4
@@ -48,12 +49,11 @@ To rozszerzenie ma w PECL status: %{status}.
 
 %prep
 %setup -qc
-mv %{modname}-%{version}/* .
-# Ugly, could be done somehow prettier (one combined patch?)
+mv %{modname}-*/* .
+%patch99 -p1
+%patch100 -p0
 %if "%{_lib}" == "lib64"
-%patch1 -p2
-%else
-%patch0 -p2
+%patch1 -p1
 %endif
 
 %build
@@ -83,6 +83,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc docs/TODO
+%doc docs/TODO docs/guide.txt
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
 %attr(755,root,root) %{php_extensiondir}/%{modname}.so

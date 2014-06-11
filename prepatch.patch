@@ -1,0 +1,19 @@
+--- php55-pecl-sasl-0.2.0/Makefile.in~	2004-01-21 10:16:02.000000000 +0200
++++ php55-pecl-sasl-0.2.0/Makefile.in	2014-06-11 10:46:50.582282253 +0300
+@@ -1,4 +1,4 @@
+-# $Id: Makefile.in,v 1.1 2004/01/21 08:16:02 jon Exp $
++# $Id$
+ 
+ LTLIBRARY_NAME        = libsasl.la
+ LTLIBRARY_SOURCES     = sasl.c
+--- php55-pecl-sasl-0.2.0/sasl.c~	2014-06-11 10:47:35.000000000 +0300
++++ php55-pecl-sasl-0.2.0/sasl.c	2014-06-11 10:48:12.862553751 +0300
+@@ -759,7 +759,7 @@
+ 	php_info_print_table_row(2, "SASL Support", "enabled");
+ 	php_info_print_table_row(2, "SASL API Version", api_version);
+ 	php_info_print_table_row(2, "SASL Library Version", lib_version);
+-	php_info_print_table_row(2, "Extension Version", "$Revision: 1.3 $");
++	php_info_print_table_row(2, "Extension Version", "$Revision$");
+ 	php_info_print_table_end();
+ }
+ /* }}} */
