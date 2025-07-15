@@ -55,10 +55,10 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-*/* .
-%patch99 -p1
-%patch100 -p0
+%patch -P99 -p1
+%patch -P100 -p0
 %if "%{_lib}" == "lib64"
-%patch1 -p1
+%patch -P1 -p1
 %endif
 
 %build
